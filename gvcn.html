@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Giáo viên chủ nhiệm - 12A2</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:'Segoe UI', sans-serif;
+
+    background-image:url("nenhong.jpg");
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    height:100vh;
+}
+
+/* khung */
+.box{
+
+    width:700px;
+
+    background:rgba(255,255,255,0.95);
+
+    border-radius:25px;
+
+    padding:30px;
+
+    text-align:center;
+
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+
+    animation: float 3s infinite;
+}
+
+@keyframes float{
+
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-10px);}
+
+}
+
+/* ảnh */
+.box img{
+
+    width:100%;
+
+    border-radius:20px;
+
+    margin-bottom:20px;
+}
+
+/* tiêu đề */
+h2{
+    color:#ff9933;
+}
+
+/* nút quay lại */
+.back-btn{
+
+    display:inline-block;
+
+    margin-top:20px;
+
+    padding:12px 25px;
+
+    border-radius:25px;
+
+    background:linear-gradient(#ffc86b,#ff9933);
+
+    color:white;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    transition:0.3s;
+}
+
+.back-btn:hover{
+
+    transform:scale(1.05);
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>Giáo Viên Chủ Nhiệm</h2>
+
+<img src="gvcn.jpg">
+
+<p>
+Thầy Ykhanh Teh là giáo viên chủ nhiệm lớp 12A2.  
+Thầy luôn tận tâm, nhiệt tình và đồng hành cùng học sinh trong mọi hoạt động học tập và ngoại khóa.
+</p>
+
+<a href="gioithieu.html" class="back-btn">
+← Quay lại trang giới thiệu
+</a>
+
+</div>
+
+</body>
+</html>

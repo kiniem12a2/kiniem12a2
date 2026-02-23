@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Giới thiệu lớp 12A2</title>
+
+<style>
+
+/* ===== RESET ===== */
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+}
+
+/* ===== Thanh menu (GIỐNG TRANG CHỦ) ===== */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 25px;
+    background: #fff3d6;
+    border-bottom: 3px dashed #f0c98a;
+}
+
+/* Logo */
+.logo img {
+    height: 60px;
+}
+
+/* Menu */
+.menu {
+    display: flex;
+    gap: 15px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #7a4e00;
+    padding: 8px 18px;
+    border: 2px dashed #e6b96b;
+    border-radius: 20px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.menu a:hover {
+    background: #ffd27a;
+}
+
+.menu a.active {
+    background: linear-gradient(#ffcc66, #f4a300);
+    color: white;
+    border: 2px solid #e09a00;
+}
+
+/* Login */
+.login-btn {
+    background: linear-gradient(#ffcc66, #f4a300);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+    text-decoration: none;
+    border: 2px solid #e09a00;
+}
+
+.anhgioithieu{
+    width: 100vw;   /* full chiều ngang màn hình */
+    height: 100vh;  /* full chiều cao màn hình */
+
+    object-fit: cover; /* ảnh lấp đầy màn hình */
+
+    display: block;
+}
+.anhgioithieu,
+.anhgioithieutt{
+    width: 100%;
+    height: auto;   /* QUAN TRỌNG: để ảnh tự cao theo tỉ lệ */
+
+    display: block;
+}
+.anh-container{
+    position: relative;
+}
+
+.anhgioithieutt{
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.footer-text{
+    position: absolute;
+
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    color: #7a4e00;
+    font-size: 18px;
+
+    background: rgba(255,255,255,0.7);
+    padding: 6px 15px;
+    border-radius: 10px;
+}
+.xemthem-btn{
+    position: absolute;
+
+    padding: 12px 28px;
+
+    background: linear-gradient(#ffc86b, #ff9933);
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 30px;
+
+    font-weight: bold;
+    font-size: 18px;
+
+    transition: all 0.3s ease;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* nút trong khung trái */
+.btn-trai{
+    top: 82%;       /* chỉnh lên xuống */
+    left: 29%;      /* chỉnh qua trái phải */
+
+    transform: translate(-50%, -50%);
+}
+
+/* nút trong khung phải */
+.btn-phai{
+    top: 82%;
+    left: 70%;
+
+    transform: translate(-50%, -50%);
+}
+
+/* animation */
+.xemthem-btn:hover{
+    transform: translate(-50%, -50%) scale(1.15);
+    background: linear-gradient(#ffd27a, #ff8800);
+}
+
+.xemthem-btn:active{
+    transform: translate(-50%, -50%) scale(0.95);
+}
+.btn{
+
+display:inline-block;
+
+margin-top:15px;
+
+padding:12px 30px;
+
+background:linear-gradient(#ffc86b,#ff9933);
+
+color:white;
+
+text-decoration:none;
+
+border-radius:25px;
+
+font-weight:bold;
+
+transition:0.3s;
+
+}
+
+.btn:hover{
+
+transform:scale(1.1);
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+
+<div class="logo">
+<a href="index.html">
+<img src="logo.png">
+</a>
+</div>
+
+<div class="menu">
+<a href="index.html">Trang Chủ</a>
+<a href="gioithieu.html" class="active">Giới Thiệu</a>
+<a href="hoatdong.html">Hoạt Động</a>
+<a href="hoctap.html">Góc Học Tập</a>
+<a href="lienhe.html">Liên Hệ</a>
+</div>
+<div id="login-area"></div>
+</div>
+<div class="content">
+
+    <img src="anhgioithieu.jpg" class="anhgioithieu">
+
+    <!-- ảnh thứ 2 + chữ -->
+   <div class="anh-container">
+
+    <img src="anhgioithieutt.jpg" class="anhgioithieutt">
+
+<!-- nút xem thêm thẻ trái -->
+<a href="gvcn.html" class="xemthem-btn btn-trai">
+    Xem Thêm
+</a>
+
+<!-- nút xem thêm thẻ phải -->
+<a href="thanhvien12a2.html" class="xemthem-btn btn-phai">
+    Xem Thêm
+</a>
+
+    <!-- chữ cuối ảnh -->
+    <div class="footer-text">
+        © 2026 Lớp 12A2. | All rights reserved.
+    </div>
+
+</div>
+    </div>
+
+</div>
+<script>
+let user = localStorage.getItem("daDangNhap");
+let area = document.getElementById("login-area");
+
+if(user){
+area.innerHTML = `
+<a href="taikhoan.html">
+<img src="logodangki.png" style="height:50px;cursor:pointer;">
+</a>
+`;
+}else{
+area.innerHTML = `
+<a href="dangnhap.html">
+<button class="login-btn">Đăng Nhập</button>
+</a>
+`;
+}
+</script>
+</body>
+</html>

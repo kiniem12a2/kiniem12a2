@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Chỉnh sửa thông tin</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:'Segoe UI', sans-serif;
+
+    background-image:url("nenhong.jpg");
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    height:100vh;
+}
+
+/* khung */
+.box{
+
+    width:420px;
+
+    background:rgba(255,255,255,0.95);
+
+    padding:30px;
+
+    border-radius:25px;
+
+    text-align:center;
+
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+
+    animation: float 3s infinite;
+}
+
+@keyframes float{
+
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-10px);}
+
+}
+
+h2{
+    color:#ff9933;
+}
+
+/* input */
+input{
+
+    width:100%;
+
+    padding:12px;
+
+    margin-bottom:12px;
+
+    border-radius:20px;
+
+    border:3px solid #ffc86b;
+
+    font-size:16px;
+
+    box-sizing:border-box;
+}
+
+/* nút */
+.btn{
+
+    width:100%;
+
+    padding:12px;
+
+    border:none;
+
+    border-radius:25px;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    margin-top:5px;
+}
+
+/* lưu */
+.save{
+    background:linear-gradient(#66cc66,#33aa33);
+    color:white;
+}
+
+/* quay lại */
+.back{
+    background:linear-gradient(#ff9933,#ff6600);
+    color:white;
+}
+
+.btn:hover{
+    transform:scale(1.05);
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>Chỉnh sửa thông tin</h2>
+
+<input id="user" type="text" placeholder="Tên tài khoản">
+
+<input id="chidoan" type="text" placeholder="Chi đoàn">
+
+<input id="vaitro" type="text" placeholder="Vai trò">
+
+<input id="sdt" type="text" placeholder="Số điện thoại">
+
+<input id="gmail" type="text" placeholder="Gmail">
+
+<input id="truong" type="text" placeholder="Trường">
+
+<button class="btn save" onclick="luuThongTin()">
+Lưu thông tin
+</button>
+
+<button class="btn back" onclick="window.location.href='taikhoan.html'">
+Quay lại
+</button>
+
+</div>
+
+<script>
+
+/* load dữ liệu cũ */
+document.getElementById("user").value =
+localStorage.getItem("username") || "";
+
+document.getElementById("chidoan").value =
+localStorage.getItem("chidoan") || "";
+
+document.getElementById("vaitro").value =
+localStorage.getItem("vaitro") || "";
+
+document.getElementById("sdt").value =
+localStorage.getItem("sdt") || "";
+
+document.getElementById("gmail").value =
+localStorage.getItem("gmail") || "";
+
+document.getElementById("truong").value =
+localStorage.getItem("truong") || "";
+
+
+/* lưu */
+function luuThongTin(){
+
+let user = document.getElementById("user").value;
+let chidoan = document.getElementById("chidoan").value;
+let vaitro = document.getElementById("vaitro").value;
+let sdt = document.getElementById("sdt").value;
+let gmail = document.getElementById("gmail").value;
+let truong = document.getElementById("truong").value;
+
+localStorage.setItem("username", user);
+localStorage.setItem("chidoan", chidoan);
+localStorage.setItem("vaitro", vaitro);
+localStorage.setItem("sdt", sdt);
+localStorage.setItem("gmail", gmail);
+localStorage.setItem("truong", truong);
+
+alert("Đã lưu thông tin!");
+
+window.location.href="taikhoan.html";
+
+}
+
+</script>
+
+</body>
+</html>

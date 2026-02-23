@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Tài khoản người dùng - 12A2</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:'Segoe UI', sans-serif;
+
+    background-image:url("nenhong.jpg");
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    height:100vh;
+}
+
+/* khung chính */
+.account-box{
+
+    width:500px;
+
+    background:rgba(255,255,255,0.9);
+
+    border-radius:25px;
+
+    padding:30px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+
+    text-align:center;
+
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-10px);}
+}
+
+/* avatar */
+.avatar{
+
+    width:120px;
+    height:120px;
+
+    border-radius:50%;
+
+    border:5px solid #ffd27f;
+
+    object-fit:cover;
+
+    margin-bottom:10px;
+}
+
+/* tên */
+.username{
+
+    font-size:28px;
+    font-weight:bold;
+
+    color:#ff9933;
+
+    margin-bottom:5px;
+}
+
+/* badge */
+.badge{
+
+    display:inline-block;
+
+    background:#ffe6a3;
+
+    padding:5px 15px;
+
+    border-radius:15px;
+
+    font-size:14px;
+
+    margin-bottom:20px;
+}
+
+/* info box */
+.info{
+
+    background:#fff3d6;
+
+    padding:15px;
+
+    border-radius:15px;
+
+    margin-bottom:15px;
+
+    text-align:left;
+}
+
+.info b{
+    color:#cc8800;
+}
+
+/* nút */
+.btn{
+
+    width:100%;
+
+    padding:12px;
+
+    border:none;
+
+    border-radius:20px;
+
+    margin-top:10px;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+/* edit */
+.edit-btn{
+
+    background:linear-gradient(#66ccff,#3399ff);
+
+    color:white;
+}
+
+.edit-btn:hover{
+    transform:scale(1.05);
+}
+
+/* logout */
+.logout-btn{
+
+    background:linear-gradient(#ff6666,#ff3333);
+
+    color:white;
+}
+
+.logout-btn:hover{
+    transform:scale(1.05);
+}
+
+/* back */
+.back{
+
+    display:block;
+
+    margin-top:15px;
+
+    text-decoration:none;
+
+    color:#cc8800;
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="account-box">
+
+<img src="logodangki.png" class="avatar">
+
+<div class="username" id="username">
+Người dùng 12A2
+</div>
+
+<div class="badge">
+🌟 Thành viên chính thức
+</div>
+
+<div class="info">
+<b>Tên tài khoản:</b> <span id="ten"></span>
+</div>
+
+<div class="info">
+<b>Chi đoàn:</b> <span id="chidoan"></span>
+</div>
+
+<div class="info">
+<b>Vai trò:</b> <span id="vaitro"></span>
+</div>
+
+<div class="info">
+<b>Số điện thoại:</b> <span id="sdt"></span>
+</div>
+
+<div class="info">
+<b>Gmail:</b> <span id="gmail"></span>
+</div>
+
+<div class="info">
+<b>Trường:</b> <span id="truong"></span>
+</div>
+
+<div class="info">
+<b>Trạng thái:</b> Đang hoạt động
+</div>
+
+<button class="btn edit-btn" onclick="window.location.href='chinhsua.html'">
+✏️ Chỉnh sửa thông tin
+</button>
+
+<button class="btn logout-btn" onclick="logout()">
+🚪 Đăng xuất
+</button>
+
+<a href="index.html" class="back">
+← Quay về trang chủ
+</a>
+
+</div>
+
+<script>
+
+let user = localStorage.getItem("username");
+
+document.getElementById("ten").innerHTML = user;
+document.getElementById("username").innerHTML = user;
+
+document.getElementById("chidoan").innerHTML = localStorage.getItem("chidoan");
+document.getElementById("vaitro").innerHTML = localStorage.getItem("vaitro");
+document.getElementById("sdt").innerHTML = localStorage.getItem("sdt");
+document.getElementById("gmail").innerHTML = localStorage.getItem("gmail");
+document.getElementById("truong").innerHTML = localStorage.getItem("truong");
+
+function logout(){
+
+localStorage.removeItem("daDangNhap");
+
+alert("Đã đăng xuất!");
+
+window.location.href="index.html";
+
+}
+
+</script>
+
+</body>
+</html>

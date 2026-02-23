@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Album ảnh lớp 12A2</title>
+
+<style>
+
+/* ===== RESET ===== */
+body{
+margin:0;
+font-family:Arial, sans-serif;
+background-image:url("nenhong.png");
+background-size:cover;
+background-position:center;
+}
+
+/* ===== NAVBAR (giống trang chủ) ===== */
+.navbar{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:10px 25px;
+background:#fff3d6;
+border-bottom:3px dashed #f0c98a;
+}
+
+.logo img{
+height:60px;
+}
+
+.menu{
+display:flex;
+gap:15px;
+}
+
+.menu a{
+text-decoration:none;
+color:#7a4e00;
+padding:8px 18px;
+border:2px dashed #e6b96b;
+border-radius:20px;
+font-weight:bold;
+transition:0.3s;
+}
+
+.menu a:hover{
+background:#ffd27a;
+}
+
+.menu a.active{
+background:linear-gradient(#ffcc66,#f4a300);
+color:white;
+border:2px solid #e09a00;
+}
+
+.login-btn{
+background:linear-gradient(#ffcc66,#f4a300);
+color:white;
+padding:10px 20px;
+border-radius:25px;
+font-weight:bold;
+text-decoration:none;
+border:2px solid #e09a00;
+}
+
+/* ===== ALBUM ===== */
+
+.album{
+padding:50px 20px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:30px;
+max-width:1200px;
+margin:auto;
+}
+
+/* ảnh */
+.photo{
+background:white;
+padding:15px;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+
+transition:0.4s;
+animation:fadeUp 1s ease;
+}
+
+.photo img{
+width:100%;
+border-radius:15px;
+display:block;
+}
+
+.photo:hover{
+transform:scale(1.05) rotate(-1deg);
+}
+
+/* animation */
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(40px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+/* fullscreen nền tối */
+.fullscreen{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+
+background:rgba(0,0,0,0.85);
+
+display:none;
+
+justify-content:center;
+align-items:center;
+
+z-index:999;
+
+animation:fadeIn 0.3s;
+}
+
+/* ảnh fullscreen */
+.fullscreen img{
+
+max-width:90%;
+max-height:90%;
+
+border-radius:20px;
+
+box-shadow:0 0 40px rgba(255,255,255,0.3);
+
+animation:zoomIn 0.3s;
+cursor:pointer;
+}
+
+/* animation */
+@keyframes zoomIn{
+from{
+transform:scale(0.7);
+opacity:0;
+}
+to{
+transform:scale(1);
+opacity:1;
+}
+}
+
+@keyframes fadeIn{
+from{opacity:0;}
+to{opacity:1;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<div class="navbar">
+
+<div class="logo">
+<a href="index.html">
+<img src="logo.png">
+</a>
+</div>
+
+<div class="menu">
+
+<a href="index.html">Trang Chủ</a>
+
+<a href="gioithieu.html">Giới Thiệu</a>
+
+<a href="hoatdong.html">Hoạt Động</a>
+
+<a href="hoctap.html">Góc Học Tập</a>
+
+<a href="album.html" class="active">Album Ảnh</a>
+
+</div>
+
+<div id="login-area"></div>
+
+</div>
+
+<!-- ===== ALBUM ẢNH ===== -->
+
+<div class="album">
+
+<div class="photo">
+<img src="anh7.jpg">
+</div>
+
+<div class="photo">
+<img src="anh8.jpg">
+</div>
+
+<div class="photo">
+<img src="anh9.jpg">
+</div>
+
+<div class="photo">
+<img src="anh10.jpg">
+</div>
+
+<div class="photo">
+<img src="anh11.jpg">
+</div>
+
+<div class="photo">
+<img src="anh12.jpg">
+</div>
+
+<div class="photo">
+<img src="anh13.jpg">
+</div>
+
+<div class="photo">
+<img src="anh14.jpg">
+</div>
+
+<div class="photo">
+<img src="anh15.jpg">
+</div>
+
+<div class="photo">
+<img src="anh16.jpg">
+</div>
+
+<div class="photo">
+<img src="anh17.jpg">
+</div>
+
+</div>
+<!-- FULLSCREEN VIEW -->
+<div id="fullscreen" class="fullscreen" onclick="dongAnh()">
+    <img id="fullscreen-img">
+</div>
+<script>
+
+/* click ảnh → phóng to */
+document.querySelectorAll(".photo img").forEach(img=>{
+
+img.onclick=function(){
+
+document.getElementById("fullscreen").style.display="flex";
+
+document.getElementById("fullscreen-img").src=this.src;
+
+}
+
+});
+
+/* click nền → đóng */
+function dongAnh(){
+
+document.getElementById("fullscreen").style.display="none";
+
+}
+
+</script>
+<script>
+let user = localStorage.getItem("daDangNhap");
+let area = document.getElementById("login-area");
+
+if(user){
+area.innerHTML = `
+<a href="taikhoan.html">
+<img src="logodangki.png" style="height:50px;cursor:pointer;">
+</a>
+`;
+}else{
+area.innerHTML = `
+<a href="dangnhap.html">
+<button class="login-btn">Đăng Nhập</button>
+</a>
+`;
+}
+</script>
+</body>
+</html>
